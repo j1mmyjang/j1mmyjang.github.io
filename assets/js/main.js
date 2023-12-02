@@ -96,7 +96,7 @@
 	// Main Sections: Two.
 
 		// Lightbox gallery.
-			$window.on('load', function() {
+			/*$window.on('load', function() {
 
 				$('#two').poptrox({
 					caption: function($a) { return $a.next('h3').text(); },
@@ -112,6 +112,18 @@
 					windowMargin: (breakpoints.active('<=small') ? 0 : 50)
 				});
 
-			});
+			});*/
+			$window.on('load', function() {
+				$('#two .work-item a.image').click(function(e) {
+					// Prevent the default behavior of the anchor tag
+					e.preventDefault();
+					
+					// Get the href attribute of the clicked anchor tag
+					var url = $(this).attr('href');
+					
+					// Redirect to the URL
+					window.location.href = url;
+				});
+			});			
 
 })(jQuery);
